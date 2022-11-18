@@ -6,7 +6,6 @@ import Footer from "/components/Footer.tsx";
 export type Props = {
 	children: ComponentChildren;
 	title?: string;
-	titleSuffix?: string;
 	name?: string;
 	description?: string;
 };
@@ -26,15 +25,14 @@ export const Container = ({ children, ...customMeta }: Props) => {
 
 const Seo = ({ ...customMeta }) => {
 	const meta = {
-		title: null,
-		titleSuffix: "nanfarm.com",
+		title: "Untitles",
 		description: "no description",
 		...customMeta,
 	};
 
 	return (
 		<Head>
-			<title>{meta.title? meta.title + " - " + meta.titleSuffix : meta.titleSuffix}</title>
+			<title>{meta.title}</title>
 			<meta content={meta.description} name="description" />
 			<link href="/img/heart.svg" rel="icon" type="image/svg" />
 			<link rel="stylesheet" href="/css/compiled.css"></link>
