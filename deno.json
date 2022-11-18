@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "tailwindcss -i input.css -o ./static/css/compiled.css -m --watch & deno run -A --watch=posts/,static/,routes/ dev.ts"
+  },
+  "importMap": "./import_map.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doubles Twilight Sign In Sheets</title>
+	<link href="/img/heart.svg" rel="icon" type="image/svg" />
+	<link rel="stylesheet" href="/css/stylize.min.css" />
+
+	<style>
+		h3 {
+			break-before: always;
+		}
+		table {
+			width: 100%;
+		}
+		th {
+			background-color: #e0e0e0;
+		}
+		thead > tr > th:nth-child(1) {
+			width: 2%;
+			text-align: center;
+		}
+		thead > tr > th:nth-child(2) {
+			width: 49%;
+		}
+		thead > tr > th:nth-child(3) {
+			width: 23%;
+		}
+		thead > tr > th:nth-child(4) {
+			width: 13%;
+		}
+		thead > tr > th:nth-child(5) {
+			width: 13%;
+		}
+		tbody > tr > th:nth-child(1) {
+			text-align: center;
+		}
+	</style>
+
+	<template id="shift-table">
+		<h3 class="center" style="display:flex; justify-content: space-between;">
+			<div>Doubles &mdash; Twilight Shift</div>
+			<div class="report-date"></div>
+		</h3>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>ID#</th>
+					<th>Time In</th>
+					<th>Time Out</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- shift-rows will go here -->
+			</tbody>
+		</table>
+	</template>
+
+	<template id="shift-row">
+		<tr>
+			<th>1</th>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</template>
+
+</head>
+<body>
+	<!-- The code will expand the templates in here. -->
+</body>
+</html>
+<script>
+
+const body = document.querySelector("body");
+const pageCount = 4;
+const rowCount = 18;
+const tableTemplate = document.querySelector("#shift-table");
+
+for(let start = 1; start < (pageCount * rowCount); start += rowCount) {
+	const table = tableTemplate.content.cloneNode(true);
+	const tbody = table.querySelector("tbody");
+	addShiftRows(tbody, start, rowCount);
+	body.appendChild(table);
+}
+
+function addShiftRows(tbody, start, rowCount) {
+	const rowTemplate = document.querySelector("#shift-row");
+
+	console.log(`Rows: ${start} - ${rowCount}`);
+
+	for(let rowNum = start; rowNum < (start + rowCount); rowNum++) {
+		const row = rowTemplate.content.cloneNode(true);
+		const th = row.querySelector("th");
+		th.textContent = rowNum;
+		tbody.appendChild(row);
+	}
+}
+
+function getDate() {
+	const dt = new Date();
+	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+	return dt.toLocaleDateString("en-US", options);
+}
+
+const rds = document.getElementsByClassName("report-date");
+
+for(let rd of rds) {
+	rd.innerHTML = getDate();
+}
+
+</script>
