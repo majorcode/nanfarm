@@ -5,8 +5,8 @@ export default function Home() {
 	date.setHours(date.getHours() + 1);
 
 	const meta = {
-		title: "Placeholder Landing Page",
-		description: "This is a sample landing page using Tailwind CSS and daisyUI.",
+		title: "Home",
+		description: "Welcome to Nancy Farmer's personal web site.",
 	};
 
 	return (
