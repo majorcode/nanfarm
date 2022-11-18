@@ -3,7 +3,7 @@ export default function Footer() {
 		<footer class="footer items-center p-4 bg-neutral text-neutral-content">
 			<div class="items-center grid-flow-col">
 				<img src="/img/heart.svg" style="width: 36px; height: 36px;" />
-				<p>Copyright © 2022 - All right reserved</p>
+				<p>Copyright © 2022 - Nancy Farmer</p>
 			</div>
 			<div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
 				{/* Facebook */}
