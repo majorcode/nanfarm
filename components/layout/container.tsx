@@ -25,16 +25,22 @@ export const Container = ({ children, ...customMeta }: Props) => {
 
 const Seo = ({ ...customMeta }) => {
 	const meta = {
-		title: "Untitles",
+		title: "Untitled",
 		description: "no description",
 		...customMeta,
 	};
+
+	// https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
 
 	return (
 		<Head>
 			<title>{meta.title}</title>
 			<meta content={meta.description} name="description" />
-			<link href="/img/heart.svg" rel="icon" type="image/svg" />
+			<meta name="theme-color" content="#ffffff"></meta>
+			<link rel="icon" href="favicon.svg" type="image/svg" />
+			<link rel="mask-icon" href="icon-mask.svg" color="#b3404a" />
+			<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+			<link rel="manifest" href="manifest.json" />
 			<link rel="stylesheet" href="/css/compiled.css"></link>
 		</Head>
 	);

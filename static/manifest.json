@@ -1,0 +1,11 @@
+{
+	"name": "Nanfarm",
+	"short_name": "Nanfarm",
+	"icons": [{
+			"src": "\/google-touch-icon.png",
+			"sizes": "512x512"
+	}],
+	"background_color": "#ffffff",
+	"theme_color": "#b3404a",
+	"display": "fullscreen"
+}
