@@ -93,12 +93,21 @@ for(const shift of shifts) {
 	const tbody = table.querySelector("tbody");
 	addShiftRows(tbody, rowCount);
 	body.appendChild(table);
+
+	if (shift == "Preload") {
+		const table = tableTemplate.content.cloneNode(true);
+		const span = table.querySelector(".shift-name");
+		span.textContent = shift;
+		const tbody = table.querySelector("tbody");
+		addShiftRows(tbody, rowCount, rowCount + 1);
+		body.appendChild(table);
+	}
 }
 
-function addShiftRows(tbody, count) {
+function addShiftRows(tbody, count, start = 1) {
 	const rowTemplate = document.querySelector("#shift-row");
 
-	for(let rowNum = 1; rowNum <= count; rowNum++) {
+	for(let rowNum = start; rowNum < start + count; rowNum++) {
 		const row = rowTemplate.content.cloneNode(true);
 		const th = row.querySelector("th");
 		th.textContent = rowNum;
