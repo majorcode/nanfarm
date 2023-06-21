@@ -16,7 +16,7 @@ export const Container = ({ children, ...customMeta }: Props) => {
 			<Seo {...customMeta} />
 			<div class="flex flex-col min-h-[100vh]">
 				<NavBar />
-				<div class="container mx-auto px-4 grow">{children}</div>
+				<div class="container px-4 mx-auto grow">{children}</div>
 				<Footer />
 			</div>
 		</>
@@ -31,6 +31,9 @@ const Seo = ({ ...customMeta }) => {
 	};
 
 	// https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
+
+	// There are suggestions to do icons better, but Safari still seems to want a mask-icon.
+	// https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
 
 	return (
 		<Head>
