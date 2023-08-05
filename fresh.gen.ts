@@ -4,15 +4,20 @@
 
 import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/index.tsx";
-import * as $2 from "./routes/ups.tsx";
+import * as $2 from "./routes/ups/index.tsx";
+import * as $3 from "./routes/ups/truck_audit.jsx";
+import * as $$0 from "./islands/MetroForm.jsx";
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $0,
     "./routes/index.tsx": $1,
-    "./routes/ups.tsx": $2,
+    "./routes/ups/index.tsx": $2,
+    "./routes/ups/truck_audit.jsx": $3,
   },
-  islands: {},
+  islands: {
+    "./islands/MetroForm.jsx": $$0,
+  },
   baseUrl: import.meta.url,
 };
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Truck Sheets</title>
+	<link href="/img/heart.svg" rel="icon" type="image/svg" />
+	<link rel="stylesheet" href="/css/stylize.min.css" />
+
+	<style>
+		section {
+			display: flex;
+			gap: 1rem;
+		}
+		h3 {
+			display:flex;
+			justify-content: space-between;
+			page-break-before: always;
+		}
+		h4 {
+			border: 1px solid var(--text-light);
+			padding: 0.5em;
+			margin-block: 2em;
+		}
+		table {
+			width: 100%;
+		}
+		th {
+			background-color: #e0e0e0;
+		}
+		thead > tr > th {
+			text-align: center;
+			width: calc(100% / 3 - 2%);
+		}
+		thead > tr > th:nth-child(1) {
+			width: 2%;
+		}
+		tbody > tr > th:nth-child(1) {
+			text-align: center;
+		}
+	</style>
+
+	<template id="metro">
+		<h3>
+			<div class="metro-title"></div>
+			<div class="report-date"></div>
+		</h3>
+		<h4>Auditor Name:</h4>
+		<section></section>
+	</template>
+
+	<template id="metro-table">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Truck #</th>
+					<th>Mis-<br>loads</th>
+					<th>Out of<br>Sync</th>
+					<th>Walked in<br>Wrong&nbsp;Car</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</template>
+
+	<template id="truck-row">
+		<tr>
+			<th>1</th>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</template>
+</head>
+
+<body>
+	<!-- The code will expand the templates in here. -->
+</body>
+</html>
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+const metroNumbers = urlParams.getAll("metro");
+
+const tableCount = 2;
+const rowCount = 13;
+
+const body = document.querySelector("body");
+const metroTemplate = document.querySelector("#metro");
+const tableTemplate = document.querySelector("#metro-table");
+
+for(const metroNumber of metroNumbers) {
+	const metro = metroTemplate.content.cloneNode(true);
+	const metroTitle = metro.querySelector(".metro-title");
+	const reportDate = metro.querySelector(".report-date");
+	const section = metro.querySelector("section");
+	
+	metroTitle.textContent = getMetroTitle(metroNumber);
+	reportDate.textContent = getReportDate();
+
+	for(let i = 0; i < tableCount; i++) {
+		const table = tableTemplate.content.cloneNode(true);
+		const tbody = table.querySelector("tbody");
+		addTruckRows(tbody, rowCount, i * rowCount);
+		section.appendChild(table);
+	}
+
+	body.appendChild(metro);
+}
+
+function addTruckRows(tbody, count, offset) {
+	const rowTemplate = document.querySelector("#truck-row");
+
+	for(let rowNum = 1; rowNum <= count; rowNum++) {
+		const row = rowTemplate.content.cloneNode(true);
+		const th = row.querySelector("th");
+		th.textContent = rowNum + offset;
+		tbody.appendChild(row);
+	}
+}
+
+function getMetroTitle(metroNumber) {
+	switch (metroNumber) {
+		case '1':
+		case '2':
+		case '3':
+			return `Cherry Hill — Metro ${metroNumber}`;
+		case '4':
+		case '5':
+		case '6':
+			return `Burlington — Metro ${metroNumber}`;
+		case '7':
+		case '8':
+		case '9':
+			return `Marlton — Metro ${metroNumber}`;
+		case '10':
+		case '11':
+		case '12':
+			return `Woodbury — Metro ${metroNumber}`;
+		default:
+			return `Unknown — Metro ${metroNumber}`;
+	}
+}
+
+function getReportDate() {
+	const dt = new Date();
+	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+	return dt.toLocaleDateString("en-US", options);
+}
+
+</script>

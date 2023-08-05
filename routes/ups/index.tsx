@@ -18,6 +18,7 @@ export default function Home() {
 				<h3>Saturday Sort</h3>
 				<ul>
 					<li><a href="/ups/saturday_sort.html">Sign-in Sheets</a></li>
+					<li><a href="/ups/truck_audit">Truck Audit</a></li>
 				</ul>
 				<h3>Doubles</h3>
 				<ul>
