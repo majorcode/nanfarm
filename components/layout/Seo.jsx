@@ -17,10 +17,10 @@ export default function Seo({ ...customMeta }) {
 			<title>{meta.title}</title>
 			<meta content={meta.description} name="description" />
 			<meta name="theme-color" content="#ffffff"></meta>
-			<link rel="icon" href="favicon.svg" type="image/svg" />
-			<link rel="mask-icon" href="icon-mask.svg" color="#b3404a" />
-			<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-			<link rel="manifest" href="manifest.json" />
+			<link rel="icon" href="/favicon.svg" type="image/svg" />
+			<link rel="mask-icon" href="/icon-mask.svg" color="#b3404a" />
+			<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+			<link rel="manifest" href="/manifest.json" />
 			<link rel="stylesheet" href="/css/compiled.css"></link>
 		</Head>
 	);
