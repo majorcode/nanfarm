@@ -86,7 +86,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const metroNumbers = urlParams.getAll("metro");
 
 const tableCount = 2;
-const rowCount = 13;
+const rowCount = 14;
 
 const body = document.querySelector("body");
 const metroTemplate = document.querySelector("#metro");
@@ -104,20 +104,20 @@ for(const metroNumber of metroNumbers) {
 	for(let i = 0; i < tableCount; i++) {
 		const table = tableTemplate.content.cloneNode(true);
 		const tbody = table.querySelector("tbody");
-		addTruckRows(tbody, rowCount, i * rowCount);
+		addTruckRows(tbody, rowCount, i * rowCount, metroNumber);
 		section.appendChild(table);
 	}
 
 	body.appendChild(metro);
 }
 
-function addTruckRows(tbody, count, offset) {
+function addTruckRows(tbody, count, offset, metroNumber) {
 	const rowTemplate = document.querySelector("#truck-row");
 
-	for(let rowNum = 1; rowNum <= count; rowNum++) {
+	for(let rowNum = 0; rowNum < count; rowNum++) {
 		const row = rowTemplate.content.cloneNode(true);
 		const th = row.querySelector("th");
-		th.textContent = rowNum + offset;
+		th.textContent = rowNum + offset + (metroNumber * 100);
 		tbody.appendChild(row);
 	}
 }
