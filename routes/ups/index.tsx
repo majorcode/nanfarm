@@ -26,6 +26,7 @@ export default function Home() {
 					<li><a href="/ups/doubles_day.html">Day Sign-in Sheets</a></li>
 					<li><a href="/ups/doubles_twilight.html">Twilight Sign-in Sheets</a></li>
 					<li><a href="/ups/doubles_midnight.html">Midnight Sign-in Sheets</a></li>
+					<li><a href="/ups/doubles_da_secondary.html">DA / Secondary Sign-in Sheets</a></li>
 				</ul>
 			</main>
 		</Container>
