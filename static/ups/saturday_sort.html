@@ -94,7 +94,7 @@ for(const shift of shifts) {
 	addShiftRows(tbody, rowCount);
 	body.appendChild(table);
 
-	if (true && shift == "Preload") {
+	if (true || shift == "Preload") {
 		const table = tableTemplate.content.cloneNode(true);
 		const span = table.querySelector(".shift-name");
 		span.textContent = shift;
