@@ -9,5 +9,8 @@
   "license": "ISC",
   "devDependencies": {
     "daisyui": "^2.33.0"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15"
   }
 }
