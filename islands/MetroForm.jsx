@@ -33,18 +33,42 @@ export default function MetroForm() {
 					<MetroCheckbox number="12" checks={checks} setChecks={setChecks} />
 				</div>
 			</div>
-			<button class="mt-6 w-1/5 btn btn-xs btn-outline" type="button" onClick={(e) => setChecks([])}>Clear</button>
-			<button class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline" type="button" onClick={(e) => setChecks(defaultChecks)}>Saturday</button>
-			<button class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline" type="button" onClick={() => setChecks(allChecks)}>Check All</button>
-			<button class="mt-6 ml-4 w-1/5 btn btn-xs" type="submit" disabled={checks.length == 0}>Print</button>
+			<button
+				class="mt-6 w-1/5 btn btn-xs btn-outline"
+				type="button"
+				onClick={() => setChecks([])}
+			>
+				Clear
+			</button>
+			<button
+				class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline"
+				type="button"
+				onClick={() => setChecks(defaultChecks)}
+			>
+				Saturday
+			</button>
+			<button
+				class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline"
+				type="button"
+				onClick={() => setChecks(allChecks)}
+			>
+				Check All
+			</button>
+			<button
+				class="mt-6 ml-4 w-1/5 btn btn-xs"
+				type="submit"
+				disabled={checks.length == 0}
+			>
+				Print
+			</button>
 		</form>
-	)
+	);
 }
 
-const MetroCheckbox = ({number, checks, setChecks}) => {
+const MetroCheckbox = ({ number, checks, setChecks }) => {
 	const checked = checks.includes(parseInt(number));
 
-	const toggleCheck = (e) => {
+	const toggleCheck = () => {
 		const newChecks = [...checks];
 		const index = newChecks.indexOf(parseInt(number));
 		if (index > -1) {
@@ -53,12 +77,20 @@ const MetroCheckbox = ({number, checks, setChecks}) => {
 			newChecks.push(parseInt(number));
 		}
 		setChecks(newChecks);
-	}
+	};
 
 	return (
 		<label class="cursor-pointer label">
-			<input type="checkbox" checked={checked} onClick={toggleCheck} class="checkbox checkbox-xs" name="metro" value={number} id={number} />
+			<input
+				type="checkbox"
+				checked={checked}
+				onClick={toggleCheck}
+				class="checkbox checkbox-xs"
+				name="metro"
+				value={number}
+				id={number}
+			/>
 			<span for={number} class="mr-4 ml-2 label-text">Metro {number}</span>
 		</label>
-	)
-}
+	);
+};

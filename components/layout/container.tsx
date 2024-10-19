@@ -1,7 +1,7 @@
 import { ComponentChildren } from "preact";
 import Seo from "./Seo.jsx";
-import NavBar from "/components/NavBar.tsx";
-import Footer from "/components/Footer.tsx";
+import NavBar from "../NavBar.tsx";
+import Footer from "../Footer.tsx";
 
 export type Props = {
 	children: ComponentChildren;

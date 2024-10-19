@@ -15,7 +15,10 @@ export default function Home() {
 			<main role="main" class="prose">
 				<h1>UPS</h1>
 				<h2>Truck Audit Forms</h2>
-				<p>Check the metros that you want to print forms for and click the print button.</p>
+				<p>
+					Check the metros that you want to print forms for and click the print
+					button.
+				</p>
 				<h3 class="mb-2">Metros</h3>
 				<MetroForm />
 			</main>
