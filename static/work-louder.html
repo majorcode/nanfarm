@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="em">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>QMK Key Codes</title>
+		<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<div class="p-4">
+		<div class="text-lg font-bold">QMK Key Codes</div>
+		<p class="text-sm max-w-xs">Press any key to get the QMK code.</p>
+		<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs my-2" />
+		<p class="text-sm">Code below...</p>
+		<pre class="p-4 bg-gray-100 w-full max-w-xs my-2 rounded-lg"></pre>
+		<button class="btn btn-sm btn-primary">
+			Copy
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="size-6"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+				/>
+			</svg>
+		</button>
+
+		<div role="alert" class="alert alert-warning max-w-xs mt-8">
+			<span class="text-xs">
+				Some key combinations (like CMD+SPACE) are intercepted by macOS before they are sent to the browser. No code is displayed
+				in that case.</span
+			>
+		</div>
+	</div>
+
+	<script>
+		const input = document.querySelector(`input`);
+		const pre = document.querySelector(`pre`);
+		const btn = document.querySelector(`button`);
+
+		input.focus();
+
+		input.addEventListener("keydown", () => {
+			event.preventDefault();
+			event.stopPropagation();
+			const keyName = event.key;
+
+			if (keyName == "Control" || keyName == "Shift" || keyName == "Alt" || keyName == "Meta") {
+				return;
+			}
+
+			let result = getQMK(event.code);
+
+			if (event.altKey) {
+				result = `A(${result})`;
+			}
+
+			if (event.shiftKey) {
+				result = `S(${result})`;
+			}
+
+			if (event.ctrlKey) {
+				result = `C(${result})`;
+			}
+
+			if (event.metaKey) {
+				result = `G(${result})`;
+			}
+
+			pre.textContent = result;
+		});
+
+		input.addEventListener("keyup", () => {
+			event.preventDefault();
+			event.stopPropagation();
+		});
+
+		btn.addEventListener("click", () => {
+			navigator.clipboard.writeText(pre.textContent);
+			input.focus();
+		});
+
+		function getQMK(keyCode) {
+			const keyMap = {
+				// Letters and Numbers
+				KeyA: "KC_A",
+				KeyB: "KC_B",
+				KeyC: "KC_C",
+				KeyD: "KC_D",
+				KeyE: "KC_E",
+				KeyF: "KC_F",
+				KeyG: "KC_G",
+				KeyH: "KC_H",
+				KeyI: "KC_I",
+				KeyJ: "KC_J",
+				KeyK: "KC_K",
+				KeyL: "KC_L",
+				KeyM: "KC_M",
+				KeyN: "KC_N",
+				KeyO: "KC_O",
+				KeyP: "KC_P",
+				KeyQ: "KC_Q",
+				KeyR: "KC_R",
+				KeyS: "KC_S",
+				KeyT: "KC_T",
+				KeyU: "KC_U",
+				KeyV: "KC_V",
+				KeyW: "KC_W",
+				KeyX: "KC_X",
+				KeyY: "KC_Y",
+				KeyZ: "KC_Z",
+				Digit1: "KC_1",
+				Digit2: "KC_2",
+				Digit3: "KC_3",
+				Digit4: "KC_4",
+				Digit5: "KC_5",
+				Digit6: "KC_6",
+				Digit7: "KC_7",
+				Digit8: "KC_8",
+				Digit9: "KC_9",
+				Digit0: "KC_0",
+
+				// F Keys
+				F1: "KC_F1",
+				F2: "KC_F2",
+				F3: "KC_F3",
+				F4: "KC_F4",
+				F5: "KC_F5",
+				F6: "KC_F6",
+				F7: "KC_F7",
+				F8: "KC_F8",
+				F9: "KC_F9",
+				F10: "KC_F10",
+				F11: "KC_F11",
+				F12: "KC_F12",
+				F13: "KC_F13",
+				F14: "KC_F14",
+				F15: "KC_F15",
+				F16: "KC_F16",
+				F17: "KC_F17",
+				F18: "KC_F18",
+				F19: "KC_F19",
+				F20: "KC_F20",
+				F21: "KC_F21",
+				F22: "KC_F22",
+				F23: "KC_F23",
+				F24: "KC_F24",
+
+				// Punctuation
+				Enter: "KC_ENTER",
+				Escape: "KC_ESCAPE",
+				Backspace: "KC_BACKSPACE",
+				Tab: "KC_TAB",
+				Space: "KC_SPACE",
+				Minus: "KC_MINUS",
+				Equal: "KC_EQUAL",
+				BracketLeft: "KC_LEFT_BRACKET",
+				BracketRight: "KC_RIGHT_BRACKET",
+				Backslash: "KC_BACKSLASH",
+				IntlHash: "KC_NONUS_HASH",
+				Semicolon: "KC_SEMICOLON",
+				Quote: "KC_QUOTE",
+				Backquote: "KC_GRAVE",
+				Comma: "KC_COMMA",
+				Period: "KC_DOT",
+				Slash: "KC_SLASH",
+				IntlBackslash: "KC_NONUS_BACKSLASH",
+
+				// Lock Keys
+				CapsLock: "KC_CAPS_LOCK",
+				ScrollLock: "KC_SCROLL_LOCK",
+				NumLock: "KC_NUM_LOCK",
+
+				// Modifiers
+				ControlLeft: "KC_LEFT_CTRL",
+				ShiftLeft: "KC_LEFT_SHIFT",
+				AltLeft: "KC_LEFT_ALT",
+				MetaLeft: "KC_LEFT_GUI",
+				ControlRight: "KC_RIGHT_CTRL",
+				ShiftRight: "KC_RIGHT_SHIFT",
+				AltRight: "KC_RIGHT_ALT",
+				MetaRight: "KC_RIGHT_GUI",
+
+				// Commands
+				PrintScreen: "KC_PRINT_SCREEN",
+				Pause: "KC_PAUSE",
+				Insert: "KC_INSERT",
+				Home: "KC_HOME",
+				PageUp: "KC_PAGE_UP",
+				Delete: "KC_DELETE",
+				End: "KC_END",
+				PageDown: "KC_PAGE_DOWN",
+				ArrowRight: "KC_RIGHT",
+				ArrowLeft: "KC_LEFT",
+				ArrowDown: "KC_DOWN",
+				ArrowUp: "KC_UP",
+				ContextMenu: "KC_APPLICATION",
+				AudioVolumeMute: "KC_KB_MUTE",
+				AudioVolumeUp: "KC_KB_VOLUME_UP",
+				AudioVolumeDown: "KC_KB_VOLUME_DOWN",
+			};
+
+			return keyMap[keyCode];
+		}
+	</script>
+</html>
