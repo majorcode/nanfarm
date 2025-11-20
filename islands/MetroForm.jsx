@@ -6,61 +6,63 @@ export default function MetroForm() {
 	const [checks, setChecks] = useState(defaultChecks);
 
 	return (
-		<form action="/ups/truck_audit.html">
-			<div class="flex gap-8">
-				<div>
-					<h4 class="mt-0">Cherry Hill</h4>
+		<form action="/ups/truck_audit.html" class="mb-8">
+			<div class="flex gap-4">
+				<fieldset class="fieldset border-base-300 rounded-lg w-sm border p-4 pt-0 pb-3">
+					<legend class="fieldset-legend">Cherry Hill</legend>
 					<MetroCheckbox number="1" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="2" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="3" checks={checks} setChecks={setChecks} />
-				</div>
-				<div>
-					<h4 class="mt-0">Burlington</h4>
+				</fieldset>
+				<fieldset class="fieldset border-base-300 rounded-lg w-sm border p-4 pt-0 pb-3">
+					<legend class="fieldset-legend">Burlington</legend>
 					<MetroCheckbox number="4" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="5" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="6" checks={checks} setChecks={setChecks} />
-				</div>
-				<div>
-					<h4 class="mt-0">Marlton</h4>
+				</fieldset>
+				<fieldset class="fieldset border-base-300 rounded-lg w-sm border p-4 pt-0 pb-3">
+					<legend class="fieldset-legend">Marlton</legend>
 					<MetroCheckbox number="7" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="8" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="9" checks={checks} setChecks={setChecks} />
-				</div>
-				<div>
-					<h4 class="mt-0">Woodbury</h4>
+				</fieldset>
+				<fieldset class="fieldset border-base-300 rounded-lg w-sm border p-4 pt-0 pb-3">
+					<legend class="fieldset-legend">Woodbury</legend>
 					<MetroCheckbox number="10" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="11" checks={checks} setChecks={setChecks} />
 					<MetroCheckbox number="12" checks={checks} setChecks={setChecks} />
-				</div>
+				</fieldset>
 			</div>
-			<button
-				class="mt-6 w-1/5 btn btn-xs btn-outline"
-				type="button"
-				onClick={() => setChecks([])}
-			>
-				Clear
-			</button>
-			<button
-				class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline"
-				type="button"
-				onClick={() => setChecks(defaultChecks)}
-			>
-				Saturday
-			</button>
-			<button
-				class="mt-6 ml-1 w-1/5 btn btn-xs btn-outline"
-				type="button"
-				onClick={() => setChecks(allChecks)}
-			>
-				Check All
-			</button>
-			<button
-				class="mt-6 ml-4 w-1/5 btn btn-xs"
-				type="submit"
-				disabled={checks.length == 0}
-			>
-				Print
-			</button>
+			<div class="mt-5">
+				<button
+					class="w-1/5 btn btn-outline btn-primary btn-sm rounded-lg"
+					type="button"
+					onClick={() => setChecks([])}
+				>
+					Clear
+				</button>
+				<button
+					class="ml-1 w-1/5 btn btn-outline btn-primary btn-sm rounded-lg"
+					type="button"
+					onClick={() => setChecks(defaultChecks)}
+				>
+					Saturday
+				</button>
+				<button
+					class="ml-1 w-1/5 btn btn-outline btn-primary btn-sm rounded-lg"
+					type="button"
+					onClick={() => setChecks(allChecks)}
+				>
+					Check All
+				</button>
+				<button
+					class="ml-8 w-1/5 btn btn-primary btn-sm rounded-lg"
+					type="submit"
+					disabled={checks.length == 0}
+				>
+					Print
+				</button>
+			</div>
 		</form>
 	);
 }
@@ -85,12 +87,12 @@ const MetroCheckbox = ({ number, checks, setChecks }) => {
 				type="checkbox"
 				checked={checked}
 				onClick={toggleCheck}
-				class="checkbox checkbox-xs"
+				class="checkbox checkbox-sm mr-1"
 				name="metro"
 				value={number}
 				id={number}
 			/>
-			<span for={number} class="mr-4 ml-2 label-text">Metro {number}</span>
+			<span for={number}>Metro {number}</span>
 		</label>
 	);
 };

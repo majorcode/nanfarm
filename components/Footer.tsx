@@ -1,9 +1,9 @@
 export default function Footer() {
 	return (
 		<footer class="grid grid-cols-2 p-4 bg-neutral text-neutral-content">
-			<div class="flex items-center whitespace-nowrap">
+			<div class="flex items-center whitespace-nowrap gap-2">
 				<img src="/img/heart.svg" style="width: 36px; height: 36px;" />
-				<p>Copyright © 2024 - Nancy Farmer</p>
+				<p>Copyright ©2025 - Nancy Farmer</p>
 			</div>
 			<div class="flex justify-end items-center">
 				<a href="https://www.facebook.com/nanfarm">

@@ -3,10 +3,17 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, valentine, corporate, business, nord, autumn, forest;
+  themes: light --default, dark --prefersdark, valentine;
 }
 
-/* .prose {
-  --tw-prose-body: oklch(0.373085 0.081131 4.60643);
-  --tw-prose-headings: oklch(0.373085 0.081131 4.60643);
-} */
+html[data-theme="valentine"] {
+  --color-base-content: oklch(0.4 0.153 2.432);
+}
+
+fieldset {
+  font-size: inherit;
+}
+
+.label {
+  color: var(--tw-prose-body);
+}

@@ -1,6 +1,6 @@
 export default function NavBar() {
 	return (
-		<div class="navbar bg-base-100">
+		<div class="navbar bg-base-300 mb-8">
 			<div class="flex-1">
 				<a href="/" class="btn btn-ghost normal-case text-xl">
 					<img src="/img/heart.svg" style="width: 36px; height: 36px;" />
