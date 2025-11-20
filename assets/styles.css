@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, valentine, corporate, business, nord, autumn, forest;
 }
+
+/* .prose {
+  --tw-prose-body: oklch(0.373085 0.081131 4.60643);
+  --tw-prose-headings: oklch(0.373085 0.081131 4.60643);
+} */
