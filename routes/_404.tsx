@@ -1,7 +1,7 @@
-import { Container } from "/components/layout/container.tsx";
-import { PageProps } from "$fresh/server.ts";
+import { Container } from "@/components/layout/container.tsx";
+import { define } from "../utils.ts";
 
-export default function Error404({ url }: PageProps) {
+export default define.page(function Error404({ url }) {
   const meta = {
     title: "Page Not Found",
     description: "The page you requested does not exist.",
@@ -21,4 +21,4 @@ export default function Error404({ url }: PageProps) {
       </div>
     </Container>
   );
-}
+});

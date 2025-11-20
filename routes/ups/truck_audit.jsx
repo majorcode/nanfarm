@@ -1,5 +1,5 @@
-import { Container } from "/components/layout/container.tsx";
-import MetroForm from "/islands/MetroForm.jsx";
+import { Container } from "@/components/layout/container.tsx";
+import MetroForm from "@/islands/MetroForm.jsx";
 
 export default function Home() {
 	const date = new Date();

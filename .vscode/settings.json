@@ -14,12 +14,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
-  "css.customData": [
-    ".vscode/tailwind.json"
-  ],
-  "cSpell.words": [
-    "deno",
-    "nanfarm",
-    "tailwindcss"
-  ]
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

@@ -14,7 +14,7 @@ export const Container = ({ children, ...customMeta }: Props) => {
 	return (
 		<>
 			<Seo {...customMeta} />
-			<div class="flex flex-col min-h-[100vh]">
+			<div class="flex flex-col min-h-screen">
 				<NavBar />
 				<div class="container px-4 mx-auto grow">{children}</div>
 				<Footer />
