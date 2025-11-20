@@ -23,9 +23,6 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Install dependencies
-        run: "deno cache"
-
       - name: Build step
         run: "deno task build"
 
@@ -33,7 +30,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "nanfarm"
-          entrypoint: "./_fresh/server.js"
-          root: ""
+          entrypoint: "main.ts"
+          root: "."
           
           
