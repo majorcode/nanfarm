@@ -30,7 +30,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "nanfarm"
-          entrypoint: "main.ts"
-          root: "."
+          entrypoint: "./_fresh/server.js"
+          root: ""
           
           
