@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mobile Device Sign Out/In Sheet</title>
+	<link href="/img/heart.svg" rel="icon" type="image/svg" />
+	<link rel="stylesheet" href="/css/stylize.min.css" />
+
+	<style>
+		body{
+			line-height: 1.25;
+			font-size: 1em;
+		}
+		h3 {
+			page-break-before: always;
+		}
+		table {
+			width: 100%;
+		}
+		th {
+			background-color: #e0e0e0;
+		}
+		thead > tr > th:nth-child(1) {
+			width: 2%;
+			text-align: center;
+		}
+		thead > tr > th:nth-child(2) {
+			width: 8%;
+		}
+		thead > tr > th:nth-child(3) {
+			width: 49%;
+		}
+		thead > tr > th:nth-child(4) {
+			width: 13%;
+		}
+		thead > tr > th:nth-child(5) {
+			width: 13%;
+		}
+		tbody > tr > th:nth-child(1) {
+			text-align: center;
+		}
+	</style>
+
+	<template id="device-table">
+		<h3 class="center" style="display:flex; justify-content: space-between;">
+			<div>
+				Mobile Device Sign Out/In
+				&mdash;
+				<span class="center-name"></span> Center
+			</div>
+			<div class="report-date"></div>
+		</h3>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Serial</th>
+					<th>Name</th>
+					<th>Time Out</th>
+					<th>Time In</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- device-rows will go here -->
+			</tbody>
+		</table>
+	</template>
+
+	<template id="device-row">
+		<tr>
+			<th>1</th>
+			<td class="serial"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</template>
+
+</head>
+<body>
+	<!-- The code will expand the templates in here. -->
+</body>
+</html>
+<script>
+
+const body = document.querySelector("body");
+const centers = ["Woodbury"];
+
+const devices = [
+	"A8125911",
+	"A8143379",
+	"A8146314",
+	"A8212991",
+	"A8148605",
+	"A8211878",
+	"A8149628",
+	"A8203233",
+	"A8144170",
+	"A8125486",
+	"A8144218",
+	"A8145864",
+	"A8111695",
+	"A8126657",
+	"A8128533",
+	"A8111472",
+	"A8146011",
+	"A8145454",
+	"A8142612",
+	"Z3014416",
+	"Z3018640",
+	"Z3010773",
+	"Z3012198",
+	"Z3016213",
+	"Z3014463",
+	"Z3019051",
+];
+
+const tableTemplate = document.querySelector("#device-table");
+
+for(const center of centers) {
+	const table = tableTemplate.content.cloneNode(true);
+	const span = table.querySelector(".center-name");
+	span.textContent = center;
+	const tbody = table.querySelector("tbody");
+	addDeviceRows(tbody, devices);
+	body.appendChild(table);
+}
+
+function addDeviceRows(tbody, devices) {
+	const rowTemplate = document.querySelector("#device-row");
+
+	for(let rowNum = 1; rowNum <= devices.length; rowNum++) {
+		const row = rowTemplate.content.cloneNode(true);
+
+		const th = row.querySelector("th");
+		th.textContent = rowNum;
+
+		const td = row.querySelector("td.serial");
+		td.textContent = devices[rowNum - 1];
+
+		tbody.appendChild(row);
+	}
+}
+
+// The dates have to be filled in after the templates are expanded
+
+function getReportDate() {
+	const dt = new Date();
+	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+	return dt.toLocaleDateString("en-US", options);
+}
+
+const rds = document.getElementsByClassName("report-date");
+
+for(let rd of rds) {
+	rd.innerHTML = getReportDate();
+}
+
+</script>
