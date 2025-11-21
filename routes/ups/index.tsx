@@ -7,7 +7,7 @@ export default function Home() {
 	const meta = {
 		title: "UPS",
 		description:
-			"This page hosts tools I've made to make mu work at UPS easier.",
+			"This page hosts tools I've made to make my work at UPS easier.",
 	};
 
 	return (
