@@ -71,7 +71,7 @@
 	<template id="device-row">
 		<tr>
 			<th>1</th>
-			<td class="serial"></td>
+			<td><samp class="serial"></samp></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -137,7 +137,7 @@ function addDeviceRows(tbody, devices) {
 		const th = row.querySelector("th");
 		th.textContent = rowNum;
 
-		const td = row.querySelector("td.serial");
+		const td = row.querySelector("samp.serial");
 		td.textContent = devices[rowNum - 1];
 
 		tbody.appendChild(row);
