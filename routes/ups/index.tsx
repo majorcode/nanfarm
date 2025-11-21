@@ -15,7 +15,12 @@ export default function Home() {
 			<main role="main" class="prose">
 				<h1>UPS</h1>
 				<h2>Easy Peasy Forms</h2>
-				<p>Click on a link below and print the page.</p>
+				<div role="alert" class="alert">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					<span>Click on a link below and print the page.</span>
+				</div>
 				<h3>Saturday Sort</h3>
 				<ul>
 					<li>
