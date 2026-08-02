@@ -21,7 +21,6 @@ export default function Seo({ ...customMeta }) {
 			<link rel="mask-icon" href="/icon-mask.svg" color="#b3404a" />
 			<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 			<link rel="manifest" href="/manifest.json" />
-			<link rel="stylesheet" href="/css/compiled.css"></link>
 		</Head>
 	);
 }
