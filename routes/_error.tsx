@@ -16,20 +16,25 @@ export default function ErrorPage(props: PageProps) {
 
 			return (
 				<Container {...meta}>
-					<div class="flex justify-center">
-						<div class="mt-24">
-							<h1 class="text-xl font-bold">{meta.title}</h1>
-							<p>
-								Sorry, but the page you were trying to view (<code>
-									{props.url.pathname}
-								</code>) does not exist.
-							</p>
-						</div>
-					</div>
+					<main role="main" class="prose">
+						<h1>{meta.title}</h1>
+						<p>
+							Sorry, but the page you were trying to view (<code>
+								{props.url.pathname}
+							</code>) does not exist.
+						</p>
+					</main>
 				</Container>
 			);
     }
   }
 
-  return <h1>Oh no...</h1>;
+  return (
+		<Container title="Error">
+			<main role="main" class="prose">
+				<h1>Oh no...</h1>
+				<p>Something went wrong.</p>
+			</main>
+		</Container>
+	);
 }
