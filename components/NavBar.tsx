@@ -6,7 +6,7 @@ export default function NavBar() {
 					href="/"
 					class="btn btn-ghost text-xl hover:bg-base-content/8 border-0"
 				>
-					<img src="/img/heart.svg" style="width: 36px; height: 36px;" />
+					<img src="/img/heart.svg" style="width: 36px; height: 36px;" alt="" />
 					<span class="pl-2">Nanfarm</span>
 				</a>
 			</div>

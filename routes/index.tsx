@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <Container {...meta}>
-      <img src="/img/photo.png" class="my-4 rounded-lg" />
+      <img src="/img/photo.png" class="my-4 rounded-lg" alt="Nancy Farmer" />
     </Container>
   );
 }

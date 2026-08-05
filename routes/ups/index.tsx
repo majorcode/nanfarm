@@ -17,6 +17,8 @@ export default function Home() {
 				<h2>Easy Peasy Forms</h2>
 				<div role="alert" class="alert">
 					<svg
+						aria-hidden="true"
+						focusable="false"
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
