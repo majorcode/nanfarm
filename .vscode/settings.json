@@ -16,5 +16,9 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "git.autoRepositoryDetection": "subFolders",
+  "git.ignoredRepositories": [
+    "/Users/sfarmer/Development/tplc_ex"
+  ]
 }
