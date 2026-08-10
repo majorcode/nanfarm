@@ -1,17 +1,10 @@
-import { Container } from "@/components/layout/container.tsx";
+import { define } from "@/utils.ts";
 
-export default function Home() {
-  const date = new Date();
-  date.setHours(date.getHours() + 1);
+export default define.page(({ state }) => {
+	state.title = "Home";
+	state.description = "Welcome to Nancy Farmer's personal web site."; // optional
 
-  const meta = {
-    title: "Home",
-    description: "Welcome to Nancy Farmer's personal web site.",
-  };
-
-  return (
-    <Container {...meta}>
-      <img src="/img/photo.png" class="my-4 rounded-lg" alt="Nancy Farmer" />
-    </Container>
-  );
-}
+	return (
+		<img src="/img/photo.png" class="my-4 rounded-lg" alt="Nancy Farmer" />
+	);
+});

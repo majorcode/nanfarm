@@ -1,40 +1,37 @@
-import { HttpError, PageProps } from "fresh";
-import { Container } from "@/components/layout/container.tsx";
+import { define } from "@/utils.ts";
+import { HttpError } from "fresh";
 
-export default function ErrorPage(props: PageProps) {
-  const error = props.error; // Contains the thrown Error or HTTPError
-	
-  if (error instanceof HttpError) {
-    const status = error.status; // HTTP status code
+export default define.page(({ error, state, url}) => {
 
-    // Render a 404 not found page
-    if (status === 404) {
-			const meta = {
-				title: "Page Not Found",
-				description: "The page you requested does not exist.",
-			};
+	if (error instanceof HttpError) {
+		const status = error.status; // HTTP status code
+		state.title = `${status} ${error.message}`;
+		state.description = `An error occurred: ${error.message}`;
 
+		// Render a 404 not found page
+		if (status === 404) {
 			return (
-				<Container {...meta}>
-					<main role="main" class="prose">
-						<h1>{meta.title}</h1>
-						<p>
-							Sorry, but the page you were trying to view (<code>
-								{props.url.pathname}
-							</code>) does not exist.
-						</p>
-					</main>
-				</Container>
+				<section class="prose">
+					<h1>Page Not Found</h1>
+					<p>
+						Sorry, but the page you were trying to view (
+							<code class="whitespace-nowrap">
+								{url.pathname}
+							</code>
+						) does not exist.
+					</p>
+				</section>
 			);
-    }
-  }
+		}
+	}
 
-  return (
-		<Container title="Error">
-			<main role="main" class="prose">
-				<h1>Oh no...</h1>
-				<p>Something went wrong.</p>
-			</main>
-		</Container>
+	state.title = "Error";
+	state.description = "An unexpected error occurred.";
+
+	return (
+		<section class="prose">
+			<h1>Oh no...</h1>
+			<p>Something went wrong.</p>
+		</section>
 	);
-}
+});
