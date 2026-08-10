@@ -58,6 +58,7 @@ export default function MetroForm() {
 				<button
 					class="ml-8 w-1/5 btn btn-primary btn-sm rounded-lg"
 					type="submit"
+					f-client-nav={false}
 					disabled={checks.length == 0}
 				>
 					Print
