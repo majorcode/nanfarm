@@ -30,7 +30,7 @@ export default define.page(({ state }) => {
 			<h3>Saturday Sort</h3>
 			<ul>
 				<li>
-					<a href="/ups/saturday_sort.html">Sign-in Sheets</a>
+					<a href="/ups/saturday_sort.html" f-client-nav={false}>Sign-in Sheets</a>
 				</li>
 				<li>
 					<a href="/ups/truck_audit">Truck Audit</a>
@@ -39,25 +39,25 @@ export default define.page(({ state }) => {
 			<h3>Doubles Sign-in Sheets</h3>
 			<ul>
 				<li>
-					<a href="/ups/doubles_preload.html">Preload</a>
+					<a href="/ups/doubles_preload.html" f-client-nav={false}>Preload</a>
 				</li>
 				<li>
-					<a href="/ups/doubles_day.html">Day</a>
+					<a href="/ups/doubles_day.html" f-client-nav={false}>Day</a>
 				</li>
 				<li>
-					<a href="/ups/doubles_twilight.html">Twilight</a>
+					<a href="/ups/doubles_twilight.html" f-client-nav={false}>Twilight</a>
 				</li>
 				<li>
-					<a href="/ups/doubles_midnight.html">Midnight</a>
+					<a href="/ups/doubles_midnight.html" f-client-nav={false}>Midnight</a>
 				</li>
 				<li>
-					<a href="/ups/doubles_da_secondary.html">DA / Secondary</a>
+					<a href="/ups/doubles_da_secondary.html" f-client-nav={false}>DA / Secondary</a>
 				</li>
 			</ul>
 			<h3>Mobile Device Sign Out/In Sheets</h3>
 			<ul>
 				<li>
-					<a href="/ups/mda_list_woodbury.html">Woodbury MDA Sheet</a>
+					<a href="/ups/mda_list_woodbury.html" f-client-nav={false}>Woodbury MDA Sheet</a>
 				</li>
 			</ul>
 		</section>
