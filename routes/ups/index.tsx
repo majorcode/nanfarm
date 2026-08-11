@@ -29,16 +29,30 @@ export default define.page(({ state }) => {
 			</div>
 			<h3>Saturday Sort</h3>
 			<ul>
-				<li><a href="/ups/saturday_sort.html">Sign-in Sheets</a></li>
-				<li><a href="/ups/truck_audit">Truck Audit</a></li>
+				<li>
+					<a href="/ups/saturday_sort.html">Sign-in Sheets</a>
+				</li>
+				<li>
+					<a href="/ups/truck_audit">Truck Audit</a>
+				</li>
 			</ul>
 			<h3>Doubles Sign-in Sheets</h3>
 			<ul>
-				<li><a href="/ups/doubles_preload.html">Preload</a></li>
-				<li><a href="/ups/doubles_day.html">Day</a></li>
-				<li><a href="/ups/doubles_twilight.html">Twilight</a></li>
-				<li><a href="/ups/doubles_midnight.html">Midnight</a></li>
-				<li><a href="/ups/doubles_da_secondary.html">DA / Secondary</a></li>
+				<li>
+					<a href="/ups/doubles_preload.html">Preload</a>
+				</li>
+				<li>
+					<a href="/ups/doubles_day.html">Day</a>
+				</li>
+				<li>
+					<a href="/ups/doubles_twilight.html">Twilight</a>
+				</li>
+				<li>
+					<a href="/ups/doubles_midnight.html">Midnight</a>
+				</li>
+				<li>
+					<a href="/ups/doubles_da_secondary.html">DA / Secondary</a>
+				</li>
 			</ul>
 			<h3>Mobile Device Sign Out/In Sheets</h3>
 			<ul>

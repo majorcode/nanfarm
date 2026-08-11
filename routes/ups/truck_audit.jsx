@@ -27,8 +27,7 @@ export default define.page(({ state }) => {
 					</path>
 				</svg>
 				<span>
-					Choose the metros that you want to print forms for and click the
-					print button.
+					Choose the metros that you want to print forms for and click the print button.
 				</span>
 			</div>
 			<h3 class="mb-2">Metros</h3>

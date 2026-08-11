@@ -5,7 +5,7 @@ const SITE_NAME = "Nanfarm.com";
 export default define.page((ctx) => {
 	const { Component, state } = ctx;
 	const { title, description, keywords } = state;
-	const siteTitle = (title ? `${title} · ${SITE_NAME}` : SITE_NAME);
+	const siteTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
 
 	return (
 		<html data-theme="valentine" lang="en">

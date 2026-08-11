@@ -1,8 +1,7 @@
 import { define } from "@/utils.ts";
 import { HttpError } from "fresh";
 
-export default define.page(({ error, state, url}) => {
-
+export default define.page(({ error, state, url }) => {
 	if (error instanceof HttpError) {
 		const status = error.status; // HTTP status code
 
@@ -16,9 +15,9 @@ export default define.page(({ error, state, url}) => {
 					<h1>Page Not Found</h1>
 					<p>
 						Sorry, but the page you were trying to view (
-							<code class="whitespace-nowrap">
-								{url.pathname}
-							</code>
+						<code class="whitespace-nowrap">
+							{url.pathname}
+						</code>
 						) does not exist.
 					</p>
 				</section>
